@@ -8,8 +8,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_params)
-    redirect_to new_blog_path
+    @blog = Blog.create(blog_params)
+    if @blog.save
+    redirect_to new_blog_path, notice: "ブログを投稿しました！"
+    else
+    render :new
+    end
   end
 
   def show
@@ -20,5 +24,4 @@ class BlogsController < ApplicationController
   def blog_params
     params.require(:blog).permit(:content)
   end
-
 end
