@@ -6,7 +6,8 @@
   <% @blogs.each do |blog| %>
     <tr>
      <td><%= blog.content %></td>
-     <td><%= link_to "投稿内容を確認する", blog_path(blog.id)%></td>
+     <td><%= link_to "投稿内容を確認する", blog_path(blog.id) %></td>
+     <td><%= link_to "編集する", edit_blog_path(blog.id) %></td>
     </tr>
   <% end %>
 </table>
