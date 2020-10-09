@@ -1,16 +1,37 @@
-<h1>ブログ 一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>投稿内容</th>
-  </tr>
-  <% @blogs.each do |blog| %>
-    <tr>
-     <td><%= blog.content %></td>
-     <td><%= link_to "投稿内容を確認する", blog_path(blog.id) %></td>
-     <td><%= link_to "編集する", edit_blog_path(blog.id) %></td>
-     <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to "ブログ新規作成", new_blog_path %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="app/assets/stylesheets/application.css">
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li class="left"><a href="#">ささやきブログ</a></li>
+        <li class="right"><a href="#">お問い合わせ</a></li>
+        <li class="right"><a href="#">ログイン</a></li>
+      </ul>
+    </header>
+    <h3>ブログ 一覧</h3>
+    <p><%= notice %></p>
+    <%= link_to "ブログ新規作成", new_blog_path %>
+    <table class="content">
+      <tr>
+        <th>投稿内容</th>
+      </tr>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.content %></td>
+          <td><%= link_to "投稿内容を確認する", blog_path(blog.id) %></td>
+          <td><%= link_to "編集する", edit_blog_path(blog.id) %></td>
+          <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+        </tr>
+      <% end %>
+    </table>
+    <footer>
+      <p>運営会社WHISPER株式会社</p>
+      <p>© 2020 Copyright WHISPER Corp.</p>
+    </footer>
+  </body>
+</html>
