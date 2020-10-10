@@ -13,9 +13,11 @@
         <li class="right"><a href="#">ログイン</a></li>
       </ul>
     </header>
+    <section class="main-header">
     <h3>ブログ 一覧</h3>
     <p><%= notice %></p>
     <%= link_to "ブログ新規作成", new_blog_path %>
+    </section>
     <table class="content">
       <tr>
         <th>投稿内容</th>
@@ -23,9 +25,9 @@
       <% @blogs.each do |blog| %>
         <tr>
           <td><%= blog.content %></td>
-          <td><%= link_to "投稿内容を確認する", blog_path(blog.id) %></td>
-          <td><%= link_to "編集する", edit_blog_path(blog.id) %></td>
-          <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+          <td><%= link_to "投稿内容を確認する", blog_path(blog.id),class:"no-underline" %></td>
+          <td><%= link_to "編集する", edit_blog_path(blog.id),class:"no-underline" %></td>
+          <td><%= link_to "削除する", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"},class:"no-underline" %></td>
         </tr>
       <% end %>
     </table>
